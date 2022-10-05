@@ -22,7 +22,7 @@
     </el-dialog>
 </template>
 <script lang="ts" setup>
-import { ref, onMounted, watchEffect, nextTick } from 'vue'
+import { ref, onMounted, watchEffect } from 'vue'
 import { useRouter } from 'vue-router';
 import { ElMessage } from 'element-plus'
 const centerDialogVisible = ref(false)
@@ -88,7 +88,7 @@ onMounted(() => {
     top: 0;
     left: 0;
     border-bottom: 1px solid #888;
-    // z-index: 1000;
+    z-index: 1000;
 }
 
 span {

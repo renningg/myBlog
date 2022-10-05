@@ -67,7 +67,7 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { ref,onMounted} from "vue";
+import { ref, onMounted } from "vue";
 const articleList = ref([
   {
     title: "React如何利用hook的useRoutes()写路由表",
@@ -109,33 +109,29 @@ const articleList = ref([
     pic: "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fresource.shangmayuan.com%2Fdroxy-blog%2F2020%2F11%2F25%2Fb4bdd6b223504c859fda43e6cd8bf0b0-2.JPEG&refer=http%3A%2F%2Fresource.shangmayuan.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1666405619&t=0ce49cdd4d54952064cb50857ffce43b",
   },
 ]);
-
 </script>
 <style lang="scss" scoped>
 .index {
-    width: 70%;
-  margin-left: 15%;
+  width: 80%;
+  margin-left: 10%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  //   border: 1px solid;
-//   margin-top: 50px;
+  height: 100%;
+  margin-top: 50px;
 }
 
 .left {
   width: 70%;
-  // border: 1px solid;
-
   .left-item {
     width: 100%;
     height: 200px;
-    // border: 1px solid;
     display: flex;
+    margin-top: 20px;
     flex-direction: row;
     justify-content: space-around;
     border-bottom: 1px solid #888;
-    margin-top: 50px;
-
+    padding: 5px;
     .content {
       width: calc(100% - 220px);
       display: flex;
@@ -171,13 +167,18 @@ const articleList = ref([
       margin: 50px 10px 0px 10px;
     }
   }
+
+  .left-item:hover{
+    cursor: pointer;
+    border-radius:10px;
+    box-shadow: 0 0 10px rgba($color: black, $alpha: 0.2);
+  }
 }
 
 .right {
   width: 25%;
   display: flex;
   flex-direction: column;
-
   .avatar img {
     width: 100px;
     height: 100px;
@@ -193,13 +194,12 @@ const articleList = ref([
   }
 
   .tag {
-    width: 50%;
-    margin-left: 25%;
+    width: 70%;
+    margin-left: 15%;
     height: 150px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-
     .tag-item {
       display: flex;
       flex-direction: row;
@@ -215,8 +215,9 @@ const articleList = ref([
   }
 
   .socialAccount_pic img {
-    width: 100%;
-    height: 400px;
+    width: 70%;
+    margin-left: 15%;
+    height: 300px;
     border-radius: 10px;
     margin-top: 20px;
     box-shadow: 0 0 10px 10px rgba($color: #000000, $alpha: 0.2);

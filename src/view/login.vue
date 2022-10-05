@@ -62,7 +62,7 @@ onMounted(() => {
     height: 250px;
     padding: 20px 0px;
     position: absolute;
-    z-index: 1;
+    z-index: 10000;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);

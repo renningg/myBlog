@@ -1,6 +1,7 @@
 <template>
     <div class="index">
         <!-- <img src="@/assets/intro.jpg" alt=""> -->
+       
     </div>
 </template>
 
