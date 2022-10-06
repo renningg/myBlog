@@ -45,19 +45,13 @@
         <div class="nickName">一介菜菜</div>
       </div>
       <div class="tag">
-        <div class="tag-item">
-          <el-tag size="large">汉子</el-tag>
-          <el-tag size="large">180CM</el-tag>
-          <el-tag size="large">80KG</el-tag>
-        </div>
-        <div class="tag-item">
-          <el-tag size="large">🏀🏀🏀</el-tag>
-          <el-tag size="large">🏓🏓</el-tag>
-        </div>
-        <div class="tag-item">
-          <el-tag size="large">程序猿</el-tag>
-          <el-tag size="large">菜鸡一只</el-tag>
-        </div>
+        <el-tag
+          size="large"
+          v-for="(item, index) in tagList"
+          :key="index"
+          @click="clickTag(item)"
+          >{{ item }}</el-tag
+        >
       </div>
       <div class="socialAccount">第三方社交帐号，关注博主！</div>
       <div class="socialAccount_pic">
@@ -68,6 +62,7 @@
 </template>
 <script lang="ts" setup>
 import { ref, onMounted } from "vue";
+import { ElMessage } from "element-plus";
 const articleList = ref([
   {
     title: "React如何利用hook的useRoutes()写路由表",
@@ -109,6 +104,36 @@ const articleList = ref([
     pic: "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fresource.shangmayuan.com%2Fdroxy-blog%2F2020%2F11%2F25%2Fb4bdd6b223504c859fda43e6cd8bf0b0-2.JPEG&refer=http%3A%2F%2Fresource.shangmayuan.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1666405619&t=0ce49cdd4d54952064cb50857ffce43b",
   },
 ]);
+const tagList = ref([
+  "汉子",
+  "181CM",
+  "80KG",
+  "🏀🏀🏀",
+  "🏓🏓",
+  "程序猿",
+  "菜鸡一只",
+  "单身汉",
+]);
+const throttle = (fn1: Function, fn2: Function, delay: Number) => {
+  let beginTime = 0;
+  return () => {
+    let nowTime = Date.now();
+    if (nowTime - beginTime >= delay) {
+      fn1();
+      beginTime = nowTime;
+    } else fn2();
+  };
+};
+
+const clickTag = throttle(
+  () => {
+    ElMessage.success("Yes！！！");
+  },
+  () => {
+    ElMessage.error("点击的太快了！！！");
+  },
+  2000
+);
 </script>
 <style lang="scss" scoped>
 .index {
@@ -168,9 +193,9 @@ const articleList = ref([
     }
   }
 
-  .left-item:hover{
+  .left-item:hover {
     cursor: pointer;
-    border-radius:10px;
+    border-radius: 10px;
     box-shadow: 0 0 10px rgba($color: black, $alpha: 0.2);
   }
 }
@@ -183,8 +208,7 @@ const articleList = ref([
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    margin: 50px;
-    margin-left: 35%;
+    margin: 10px calc(50% - 50px);
   }
 
   .nickName {
@@ -194,32 +218,35 @@ const articleList = ref([
   }
 
   .tag {
-    width: 70%;
-    margin-left: 15%;
+    width: 200px;
+    margin: 0px calc(50% - 100px);
     height: 150px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-around;
-    .tag-item {
+    .el-tag {
       display: flex;
       flex-direction: row;
       justify-content: space-around;
+      margin-top: 10px;
+    }
+    .el-tag:hover {
+      cursor: pointer;
     }
   }
 
   .socialAccount {
-    color: #888;
     text-align: center;
     font-size: 16px;
     margin-top: 50px;
   }
 
   .socialAccount_pic img {
-    width: 70%;
-    margin-left: 15%;
-    height: 300px;
+    width: 250px;
+    height: 350px;
     border-radius: 10px;
-    margin-top: 20px;
+    margin: 20px calc(50% - 125px);
     box-shadow: 0 0 10px 10px rgba($color: #000000, $alpha: 0.2);
   }
 }
