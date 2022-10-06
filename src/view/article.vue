@@ -25,9 +25,37 @@
                 justify-content: space-between;
               "
             >
-              <div>查看{{ item.seeNum }}</div>
-              <div>评论{{ item.commentNum }}</div>
-              <div>赞{{ item.likeNum }}</div>
+              <div style="display: flex">
+                <el-icon :style="{ margin: '2px' }"><View /></el-icon>
+                <div>{{ item.seeNum }}</div>
+              </div>
+
+              <div style="display: flex">
+                <el-icon :style="{ margin: '2px' }"><ChatDotRound /></el-icon>
+                <div>{{ item.commentNum }}</div>
+              </div>
+
+              <div style="display: flex">
+                <el-icon
+                  v-if="!item.isStar"
+                  @click="clickStar(item)"
+                  :style="{
+                    margin: '2px',
+                    color: '',
+                  }"
+                  ><Star
+                /></el-icon>
+                <el-icon
+                  v-if="item.isStar"
+                  @click="clickStar(item)"
+                  :style="{
+                    margin: '2px',
+                    color: 'yellow',
+                  }"
+                  ><StarFilled
+                /></el-icon>
+                <div>{{ item.likeNum }}</div>
+              </div>
             </div>
             <div class="time" style="width: 20%">
               <span>{{ item.time }}</span>
@@ -72,6 +100,7 @@ const articleList = ref([
     likeNum: 2,
     time: "2022-9-21",
     pic: "https://www.andreasreiterer.at/wp-content/uploads/2017/11/react-logo-825x510.jpg",
+    isStar: false,
   },
   {
     title: "防抖与节流",
@@ -82,6 +111,7 @@ const articleList = ref([
     likeNum: 2,
     time: "2022-9-21",
     pic: "https://pic1.zhimg.com/v2-535e92c65ddaff1a55f11df10c680c75_720w.jpg?source=172ae18b",
+    isStar: false,
   },
   {
     title: "github上传代码",
@@ -92,6 +122,7 @@ const articleList = ref([
     likeNum: 2,
     time: "2022-9-21",
     pic: "https://logosmarcas.net/wp-content/uploads/2020/12/GitHub-Logo.png",
+    isStar: false,
   },
   {
     title: "/deep/和::v-deep修改elementUi样式",
@@ -102,6 +133,7 @@ const articleList = ref([
     likeNum: 2,
     time: "2022-9-21",
     pic: "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fresource.shangmayuan.com%2Fdroxy-blog%2F2020%2F11%2F25%2Fb4bdd6b223504c859fda43e6cd8bf0b0-2.JPEG&refer=http%3A%2F%2Fresource.shangmayuan.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1666405619&t=0ce49cdd4d54952064cb50857ffce43b",
+    isStar: false,
   },
 ]);
 const tagList = ref([
@@ -134,6 +166,10 @@ const clickTag = throttle(
   },
   2000
 );
+
+const clickStar = (item: any) => {
+  item.isStar = !item.isStar;
+};
 </script>
 <style lang="scss" scoped>
 .index {
@@ -210,7 +246,9 @@ const clickTag = throttle(
     border-radius: 50%;
     margin: 10px calc(50% - 50px);
   }
-
+  .avatar img:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
   .nickName {
     text-align: center;
     font-size: 24px;
@@ -248,6 +286,11 @@ const clickTag = throttle(
     border-radius: 10px;
     margin: 20px calc(50% - 125px);
     box-shadow: 0 0 10px 10px rgba($color: #000000, $alpha: 0.2);
+    transition: all 0.5s ease 0.1s;
+  }
+
+  .socialAccount_pic img:hover {
+    scale: calc(1.1);
   }
 }
 </style>
