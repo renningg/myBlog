@@ -1,9 +1,8 @@
 <template>
   <div class="nav">
-    <div :span="4">
-      <!-- <el-avatar
-        src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
-      /> -->
+    <div :span="4" class="title">
+      <img src="../assets/nav.png" alt="" />
+      <span> Welcome to rnshine !</span>
     </div>
     <div
       v-for="item in spanList"
@@ -91,12 +90,26 @@ onMounted(() => {
   flex-direction: row;
   justify-content: space-around;
   position: fixed;
+  z-index: 999;
   top: 0;
   left: 0;
   background-color: white;
   box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.2);
   padding-bottom: 10px;
-
+  .title {
+    // border: 1px solid;
+    display: flex;
+    img {
+      height: 60px;
+    }
+    span {
+      line-height: 60px;
+      font-style: italic;
+      font-size: 22px;
+      // border: 1px solid;
+      height: 100%;
+    }
+  }
 }
 
 span {

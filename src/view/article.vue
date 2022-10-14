@@ -7,11 +7,10 @@
           <div class="detail">
             {{ item.detail }}
           </div>
-          <!-- <div
+          <div
             style="
               display: flex;
               flex-direction: row;
-              margin-top: 50px;
               justify-content: space-between;
               margin-bottom: 10px;
             "
@@ -60,7 +59,7 @@
             <div class="time" style="width: 20%">
               <span>{{ item.time }}</span>
             </div>
-          </div> -->
+          </div>
         
         </div>
         <div class="picture">
@@ -180,7 +179,7 @@ const clickStar = (item: any) => {
   flex-direction: row;
   justify-content: space-between;
   height: 100%;
-  margin-top: 50px;
+  margin-top: 70px;
 }
 
 .left {
@@ -192,14 +191,14 @@ const clickStar = (item: any) => {
     margin-top: 20px;
     flex-direction: row;
     justify-content: space-around;
-    border-bottom: 1px solid #888;
-    padding: 5px;
+    box-shadow: 0 0 5px rgba($color: #000000, $alpha: 0.2);
+    border-radius: 10px;
     .content {
       width: calc(100% - 220px);
       display: flex;
       flex-direction: column;
-      justify-content: space-evenly;
-
+      justify-content: space-around;
+      margin-left: 20px;
       // border: 1px solid;
       .title {
         font-size: 20px;
@@ -210,16 +209,19 @@ const clickStar = (item: any) => {
 
       .detail {
         // height: 70%;
-        // margin-top: 20px;
+        // border: 1px solid;
+        line-height: 50px;
         text-align: left;
         white-space: wrap;
         overflow: hidden;
         text-overflow: ellipsis;
         display: -webkit-box;
-        -webkit-line-clamp: 3;
+        -webkit-line-clamp: 1;
         -webkit-box-orient: vertical;
+        background-color: #E2F3EB;
+        border-left: 5px solid #009400;
+        padding-left: 10px;
         // border: 1px solid;
-        margin-top: 20px;
       }
     }
 
