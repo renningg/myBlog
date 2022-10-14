@@ -7,7 +7,7 @@
           <div class="detail">
             {{ item.detail }}
           </div>
-          <div
+          <!-- <div
             style="
               display: flex;
               flex-direction: row;
@@ -50,7 +50,7 @@
                   @click="clickStar(item)"
                   :style="{
                     margin: '2px',
-                    color: 'yellow',
+                    color: 'orange',
                   }"
                   ><StarFilled
                 /></el-icon>
@@ -60,7 +60,8 @@
             <div class="time" style="width: 20%">
               <span>{{ item.time }}</span>
             </div>
-          </div>
+          </div> -->
+        
         </div>
         <div class="picture">
           <img :src="item.pic" alt="" />
@@ -277,7 +278,7 @@ const clickStar = (item: any) => {
   .socialAccount {
     text-align: center;
     font-size: 16px;
-    margin-top: 50px;
+    margin-top: 100px;
   }
 
   .socialAccount_pic img {
@@ -285,7 +286,7 @@ const clickStar = (item: any) => {
     height: 350px;
     border-radius: 10px;
     margin: 20px calc(50% - 125px);
-    box-shadow: 0 0 10px 10px rgba($color: #000000, $alpha: 0.2);
+    box-shadow: 0 0 5px 5px rgba($color: #000000, $alpha: 0.2);
     transition: all 0.5s ease 0.1s;
   }
 

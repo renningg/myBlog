@@ -12,9 +12,13 @@
     "@element-plus/icons-vue": "^2.0.9",
     "axios": "^0.27.2",
     "element-plus": "^2.2.17",
+    "lib-flexible": "^0.3.2",
     "mockjs": "^1.1.0",
     "path": "^0.12.7",
+    "postcss-px2rem-exclude": "^0.0.6",
+    "postcss-pxtorem": "^6.0.0",
     "sass": "^1.54.9",
+    "ts-node": "^10.9.1",
     "vue": "^3.2.37",
     "vue-router": "^4.1.5",
     "vuex": "^4.0.2"
@@ -22,6 +26,7 @@
   "devDependencies": {
     "@types/node": "^18.7.18",
     "@vitejs/plugin-vue": "^3.1.0",
+    "postcss-px-to-viewport": "^1.1.1",
     "typescript": "^4.6.4",
     "vite": "^3.1.0",
     "vue-tsc": "^0.40.4"
