@@ -60,7 +60,6 @@
               <span>{{ item.time }}</span>
             </div>
           </div>
-        
         </div>
         <div class="picture">
           <img :src="item.pic" alt="" />
@@ -91,6 +90,7 @@
 <script lang="ts" setup>
 import { ref, onMounted } from "vue";
 import { ElMessage } from "element-plus";
+const currentItem = ref()
 const articleList = ref([
   {
     title: "React如何利用hook的useRoutes()写路由表",
@@ -172,6 +172,18 @@ const clickStar = (item: any) => {
 };
 </script>
 <style lang="scss" scoped>
+$back-color: #e2f3eb;
+$box-shadow: 0 0 5px
+  rgba(
+    $color: #000000,
+    $alpha: 0.2,
+  );
+$hover-box-shadow: 0 0 10px
+  rgba(
+    $color: #000000,
+    $alpha: 0.2,
+  );
+
 .index {
   width: 80%;
   margin-left: 10%;
@@ -191,7 +203,7 @@ const clickStar = (item: any) => {
     margin-top: 20px;
     flex-direction: row;
     justify-content: space-around;
-    box-shadow: 0 0 5px rgba($color: #000000, $alpha: 0.2);
+    box-shadow: $box-shadow;
     border-radius: 10px;
     .content {
       width: calc(100% - 220px);
@@ -218,7 +230,7 @@ const clickStar = (item: any) => {
         display: -webkit-box;
         -webkit-line-clamp: 1;
         -webkit-box-orient: vertical;
-        background-color: #E2F3EB;
+        background-color: $back-color;
         border-left: 5px solid #009400;
         padding-left: 10px;
         // border: 1px solid;
@@ -235,7 +247,7 @@ const clickStar = (item: any) => {
   .left-item:hover {
     cursor: pointer;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba($color: black, $alpha: 0.2);
+    box-shadow: $hover-box-shadow;
   }
 }
 
@@ -250,7 +262,7 @@ const clickStar = (item: any) => {
     margin: 10px calc(50% - 50px);
   }
   .avatar img:hover {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    box-shadow: $hover-box-shadow;
   }
   .nickName {
     text-align: center;
@@ -288,7 +300,7 @@ const clickStar = (item: any) => {
     height: 350px;
     border-radius: 10px;
     margin: 20px calc(50% - 125px);
-    box-shadow: 0 0 5px 5px rgba($color: #000000, $alpha: 0.2);
+    box-shadow: $box-shadow;
     transition: all 0.5s ease 0.1s;
   }
 
