@@ -90,7 +90,7 @@
 <script lang="ts" setup>
 import { ref, onMounted } from "vue";
 import { ElMessage } from "element-plus";
-const currentItem = ref()
+const currentItem = ref();
 const articleList = ref([
   {
     title: "React如何利用hook的useRoutes()写路由表",
@@ -146,9 +146,9 @@ const tagList = ref([
   "菜鸡一只",
   "单身汉",
 ]);
-const throttle = (fn1: Function, fn2: Function, delay: Number) => {
+const throttle = (delay: Number) => {
   let beginTime = 0;
-  return () => {
+  return (fn1: Function, fn2: Function) => {
     let nowTime = Date.now();
     if (nowTime - beginTime >= delay) {
       fn1();
@@ -157,15 +157,19 @@ const throttle = (fn1: Function, fn2: Function, delay: Number) => {
   };
 };
 
-const clickTag = throttle(
-  () => {
-    ElMessage.success("Yes！！！");
-  },
-  () => {
-    ElMessage.error("点击的太快了！！！");
-  },
-  2000
-);
+const throttleDemo = throttle(2000);
+
+const clickTag = (params: any) => {
+  let item = params;
+  throttleDemo(
+    () => {
+      ElMessage.success(item);
+    },
+    () => {
+      ElMessage.error("点击的太快了！！！");
+    }
+  );
+};
 
 const clickStar = (item: any) => {
   item.isStar = !item.isStar;
