@@ -32,7 +32,7 @@ const PCList = ref([
   {
     index: 0,
     name: "文献标注工具",
-    pic: "http://43.143.6.197:8066/files/markTools.gif",
+    pic: "http://43.143.6.197:8066/markTools.gif",
     skill: "技术栈：Vue3 + ElementUi",
     intro:
       "功能：输入英文文献，根据句号自动分割，新增动作，属性等。可导出原文，标注结果等等",
@@ -40,7 +40,7 @@ const PCList = ref([
   {
     index: 1,
     name: "价值链管理系统",
-    pic: "http://43.143.6.197:8066/files/polyolefin.gif",
+    pic: "http://43.143.6.197:8066/polyolefin.gif",
     skill: "技术栈：Vue2 + ElementUi + VueX + VueRouter",
     intro:
       "功能：聚烯烃价值链管理系统，主要数据展示，报表生成，库存监视，数据管理等等",
@@ -50,7 +50,7 @@ const APPList = ref([
   {
     index: 0,
     name: "uniapp",
-    pic: "http://43.143.6.197:8066/files/uniapp.gif",
+    pic: "http://43.143.6.197:8066/uniapp.gif",
     skill: "技术栈：uniapp",
     intro:
       "功能：基于uniapp开发的APP，提供产品发布，产品下单，支持微信，支付宝支付，高德定位等等",
